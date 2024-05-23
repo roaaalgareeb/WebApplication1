@@ -1,0 +1,36 @@
+﻿@model Category
+@{
+    Layout = "~/views/shared/_dashboardCheflayout.cshtml";
+}
+<div class="container-fluid py-4">
+<div class="row">
+    <div class="col-12">
+        <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                    <h6 class="text-white text-capitalize ps-3">Recipes table</h6>
+                </div>
+            </div>
+            <table>
+                <tr>
+                    <th>Category Id</th>
+                    <th>Category Name</th>
+                </tr>
+                @foreach (var category in (List<Category>)ViewData["Categorys"])
+                {
+                    <tr>
+                        <td>@category.CategoryId</td>
+                        <td>@category.CategoryName</td>
+                       @*  <td>
+                            <a asp-controller="Categories" asp-action="Edit" asp-route-id="@category.CategoryId">Edit</a> |
+                            <a asp-controller="Categories" asp-action="Details" asp-route-id="@category.CategoryId">Details</a> |
+                            <a asp-controller="Categories" asp-action="Delete" asp-route-id="@category.CategoryId">Delete</a>
+                        </td> *@
+                    </tr>
+                }
+            </table>
+        </div>
+
+    </div>
+</div>
+</div>

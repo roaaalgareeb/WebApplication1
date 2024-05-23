@@ -1,0 +1,53 @@
+﻿@model Recipe
+@{
+    Layout = "~/views/shared/_Adminlayout.cshtml";
+}
+<p>
+    <a asp-controller="Recipes" asp-action="Create">Create New</a>
+</p>
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card my-4">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                    <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                        <h6 class="text-white text-capitalize ps-3">Recipes table</h6>
+                    </div>
+                </div>
+                <table>
+                    <tr>
+                        <th>Recipe Name</th>
+                        <th>Ingredients</th>
+                        <th>Instructions</th>
+                        <th>Email</th>
+                        <th>Is accepted</th>
+                        <th>Create Date</th>
+                        <th>Image Path</th>
+                        <th>ImageFile</th>
+                        <th>Category</th>
+                    </tr>
+                    @foreach (var recipe in (List<Recipe>)ViewData["recipes"])
+                    {
+                        <tr>
+                            <td>@recipe.RecipeName</td>
+                            <td>@recipe.Ingredients</td>
+                            <td>@recipe.Instructions</td>
+                            <td>@recipe.Email</td>
+                            <td>@recipe.Isaccepted</td>
+                            <td>@recipe.CreateDate</td>
+                            <td><img src="@Url.Content("~/Images/" + recipe.ImagePath1)" height="50px" width="50px" /></td>
+                            <td>@recipe.ImageFile</td>
+                            <td>@recipe.CategoryId</td>
+                            <td>
+                                <a asp-controller="Recipes" asp-action="Edit" asp-route-id="@recipe.RecipeId">Edit</a> |
+                                <a asp-controller="Recipes" asp-action="Details" asp-route-id="@recipe.RecipeId">Details</a> |
+                                <a asp-controller="Recipes" asp-action="Delete" asp-route-id="@recipe.RecipeId">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

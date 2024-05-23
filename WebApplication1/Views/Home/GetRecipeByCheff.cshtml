@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Recipe>
+
+@{
+    Layout = "~/views/shared/_UserLayout.cshtml";
+}
+<div class="recepie_area">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="single_recepie text-center">
+                        <div class="recepie_thumb">
+                            <img width="330" height="330" src="@Url.Content("~/Images/"+item.ImagePath1)" alt="image recipe">
+                        </div>
+                        <h3>@item.RecipeName</h3>
+                        <p>@item.Price JD</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

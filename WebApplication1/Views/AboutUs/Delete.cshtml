@@ -1,0 +1,45 @@
+﻿@model Recipe_Task.Models.AboutU
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>AboutU</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Imageee1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Imageee1)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Imageee2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Imageee2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description1)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Titleeee1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Titleeee1)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="AboutusId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

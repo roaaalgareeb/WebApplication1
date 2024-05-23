@@ -1,0 +1,46 @@
+﻿@model IEnumerable<User>
+
+@{
+    Layout = "~/views/shared/_UserLayout.cshtml";
+}
+<!-- slider_area_start -->
+<div class="slider_area">
+    <div class="single_slider  d-flex align-items-center slider_bg_1">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-xl-8 ">
+                    <div class="slider_text text-center">
+                        <div class="text">
+                            <h3>
+                               All Chef
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- slider_area_end -->
+<!-- dish_area start  -->
+<<div class="recepie_area">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="single_recepie text-center">
+                        <div class="recepie_thumb">
+                            <img src="@Url.Content("~/Images/"+item.ImagePath)" alt="image user">
+                        </div>
+                        <h3>@item.Fname @item.Lname</h3>
+                        <p>@item.Email</p>
+                        <a asp-action="GetRecipeByCheff" asp-route-id="@item.UserId" class="line_btn">View all Recipe</a>
+                    </div>
+                </div>
+
+            }
+        </div>
+
+    </div>
+</div>

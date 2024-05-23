@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Recipe_Task.Models.Recipe>
+@{
+    Layout = "~/views/shared/_ChefLayout.cshtml";
+}
+
+<!-- slider_area_start -->
+<div class="slider_area">
+    <div class="single_slider  d-flex align-items-center slider_bg_1">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-xl-8 ">
+                    <div class="slider_text text-center">
+                        <div class="text">
+                            <h3>
+                                My Recipe
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="recepie_area">
+    <div class="container">
+        <div class="row">
+            @foreach (var recipe in Model)
+            {
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="single_recepie text-center">
+                        <div class="recepie_thumb">
+                            <img src="@* @Model.ImageFile *@" alt="image user">
+                        </div>
+                        <h3>@recipe.RecipeName</h3>
+                        <p>@recipe.Ingredients</p>
+                        <p>@recipe.Instructions</p>
+                        <p>@recipe.Price JD</p>
+                        <a href="#" class="line_btn">View Full Recipe</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
